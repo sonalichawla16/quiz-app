@@ -6,10 +6,16 @@ class QuizController extends ResourceController {
     constructor(...args) {
         super(...args);
     }
-    // update(req, res) {     res.send('update called from class') }
+
+    update (req, res, next) {
+        super.update(req, res, next)
+        res.send("update called from class");
+        next();
+    }
 }
 var qc = new QuizController(Quiz);
-quiz = {
+
+/* quiz = {
     "create": (req, res) => {
         qc
             .create({"quizName": "New Quiz ", " year ": " 2018 "})
@@ -32,6 +38,6 @@ quiz = {
                 res.send(result);
             });
     }
-}
+} */
 
 module.exports = qc;

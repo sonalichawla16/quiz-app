@@ -1,4 +1,5 @@
 class ResourceController {
+    
     constructor(model) {
         this.Model = model;
     };
@@ -12,7 +13,8 @@ class ResourceController {
                 }
                 resolve(response);
             });
-        });
+        })
+            .catch((e) => { console.log(e) })
     };
 
     index() {
@@ -25,6 +27,7 @@ class ResourceController {
                 resolve(response);
             })
         })
+            .catch((e) => { })
     };
 
     list(req, res) {
@@ -36,10 +39,12 @@ class ResourceController {
                 }
                 resolve(response);
             })
-        }).then((result) => {
-            console.log(result)
-            res.send(result);
-        });
+        })
+            .then((result) => {
+                console.log(result)
+                res.send(result);
+            })
+            .catch((e) => { })
     };
 
     show(id) {
@@ -53,16 +58,28 @@ class ResourceController {
                 }
                 resolve(response);
             })
-        })
+        });
     };
 
-    update() {
-        console.log("this is the value of this" + this)
+    update(req, res, next) {
+        console.log("this is the value of this: " + this)
         console.log("update called");
-        // res.send('update called from resource controller')
+        res.send('update called from resource controller ' + this)
+        next();
     };
 
-    delete() {};
+    delete() {
+        console.log("here")
+        return new Promise((resolve, reject) => {
+            var msg = "In Delete Method!";
+            if (!msg)
+                reject(err);
+            resolve(msg);
+        }).catch((e) => {
+
+        });
+    };
+
 };
 
 module.exports = ResourceController;

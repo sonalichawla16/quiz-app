@@ -22,7 +22,9 @@
     "quotes": [
       1,
       "double",
-      { "allowTemplateLiterals": true }
+      {
+        "allowTemplateLiterals": true
+      }
     ],
     "no-unused-vars": "warn",
     "new-cap": "warn",
@@ -40,7 +42,10 @@
     "comma-dangle": 0,
     "eol-last": 0,
     "padded-blocks": 0,
-    "quote-props": ["warn", "always"],
+    "quote-props": [
+      "warn",
+      "always"
+    ],
     "max-len": 0
   },
   "extends": "google"
