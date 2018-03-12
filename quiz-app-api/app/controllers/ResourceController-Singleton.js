@@ -4,8 +4,9 @@ class ResourceController {
         this.Model = model;
     };
 
-    create(data) {
+    create(_user) {
         return new Promise((resolve, reject) => {
+            var data = {"name": _user.name, "email": _user.email};
             var model = new this.Model(data);
             model.save((err, response) => {
                 if (err) {
@@ -13,23 +14,27 @@ class ResourceController {
                 }
                 resolve(response);
             });
+        }).catch((e) => {
+            console.log(e)
         })
-            .catch((e) => {
-                console.log(e)
-            })
     };
 
-    index() {
+    index(_user) {
         return new Promise((resolve, reject) => {
             var model = this.Model
-            model.find({}, (err, response) => {
+            /* model.find({}, (err, response) => {
                 if (err) {
                     reject(err);
                 }
                 resolve(response);
-            })
-        })
-            .catch((e) => {})
+            }); */
+            model.findOne({"name": _user.name}, (err, response) => {
+                if (err) {
+                    reject(err);
+                }
+                resolve(response);
+            });
+        }).catch((e) => {})
     };
 
     list(req, res) {
@@ -41,12 +46,10 @@ class ResourceController {
                 }
                 resolve(response);
             })
-        })
-            .then((result) => {
-                console.log(result)
-                res.send(result);
-            })
-            .catch((e) => {})
+        }).then((result) => {
+            console.log(result)
+            res.send(result);
+        }).catch((e) => {})
     };
 
     show(id) {
@@ -78,11 +81,15 @@ class ResourceController {
                 reject(err);
             }
             resolve(msg);
-        }).catch((e) => {
-
-        });
+        }).catch((e) => {});
     };
 
+    static getInstance (model) {
+        if (ResourceController.rc === undefined) {
+            ResourceController.rc = new ResourceController(model);
+        }
+        return ResourceController.rc;
+    }
 };
 
 module.exports = ResourceController;
