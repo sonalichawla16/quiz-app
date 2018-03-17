@@ -32,7 +32,7 @@ apiRoutes = function (router) {
   // Questions Controller
   router.get("/question/create", api.question.create);
   router.get("/question/index", api.question.index);
-  // router.get("/question/show", api.question.show);
+  router.get("/question/show", api.question.show);
 
 
   return router;
