@@ -1,6 +1,5 @@
 const ResourceController = require("../ResourceController");
 const Quiz = require('../../models/quiz')
-const Model = require('../../models/quiz')
 
 class QuizController extends ResourceController {
     constructor(...args) {
@@ -11,6 +10,7 @@ class QuizController extends ResourceController {
     // }        
 }
 var qc = new QuizController(Quiz);
+//qc.list();
 // quiz = {
 //     create: (req, res) => {
 //         qc.create({ "quizName": "New Quiz", "year": "2018" }).then((result) => {

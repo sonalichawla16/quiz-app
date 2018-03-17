@@ -29,6 +29,7 @@ class ResourceController {
     }
 
     list(req, res) {
+    	console.log(this)
         return new Promise((resolve, reject) => {
             var model = this.model
             model.find({}, (err, response) => {

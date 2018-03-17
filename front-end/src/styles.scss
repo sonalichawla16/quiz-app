@@ -2,3 +2,29 @@
 
 @import "~bootstrap/dist/css/bootstrap.css";
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+.Absolute-Center {
+    margin: auto;
+    position: absolute;
+    top: 0; left: 0; bottom: 0; right: 0;
+}
+  
+.Absolute-Center.is-Responsive {
+    width: 80%; 
+    height: 50%;
+}
+.button-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+  }
+
+  .edit-container{
+    display: flex;
+    flex-direction: column;
+  }
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+/* .Align-form{
+    layout-align : center ; 
+} */

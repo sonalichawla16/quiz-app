@@ -13,3 +13,4 @@ export class ManageQuizComponent implements OnInit {
   }
 
 }
+
