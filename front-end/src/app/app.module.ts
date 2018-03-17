@@ -1,22 +1,25 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {RouterModule} from '@angular/router';
-
-import { AppComponent } from './app.component';
-import { NavBarComponent } from './nav-bar/nav-bar.component';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { HttpModule } from '@angular/http';
+//services 
+import {HttpWrapperService} from './services/http-wrapper.service';
+// Components 
+import {AppComponent} from './app.component';
+import { QuizComponent } from './quiz/quiz.component';
 import { RegisterComponent } from './register/register.component';
-import { ManageQuizComponent } from './manage-quiz/manage-quiz.component';
-import { NotFoundComponent } from './not-found/not-found.component';
+import { LoginComponent } from './login/login.component';
+import {NavBarComponent} from './nav-bar/nav-bar.component';
+import {HomeComponent} from './home/home.component';
+import {ManageQuizComponent} from './manage-quiz/manage-quiz.component';
+import {NotFoundComponent} from './not-found/not-found.component';
 import {SampleComponent} from './sample/sample.component';
-
-import {FormsModule , ReactiveFormsModule} from '@angular/forms';
-
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
+import {QuizSelectComponent} from './quiz-select/quiz-select.component';
 // Material Imports
-import {MatSelectModule, MatFormField, MatButtonModule, MatCheckboxModule,
-  MatCardModule, MatExpansionModule, MatIconModule, MatFormFieldModule,
-  MatInputModule, MatDatepickerModule, MatNativeDateModule} from '@angular/material';
+import {MatSelectModule , MatButtonModule, MatCheckboxModule, MatCardModule, MatExpansionModule, MatIconModule, MatFormFieldModule, MatInputModule, MatDatepickerModule, MatNativeDateModule} from '@angular/material';
+
 
 
 @NgModule({
@@ -25,8 +28,11 @@ import {MatSelectModule, MatFormField, MatButtonModule, MatCheckboxModule,
     NavBarComponent,
     RegisterComponent,
     ManageQuizComponent,
+    QuizSelectComponent,
     NotFoundComponent,
-    SampleComponent
+    SampleComponent,
+    QuizComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -43,9 +49,11 @@ import {MatSelectModule, MatFormField, MatButtonModule, MatCheckboxModule,
     MatButtonModule,
     MatCheckboxModule,
     MatExpansionModule,
+    MatDialogModule,
     MatIconModule,
     MatDatepickerModule,
     MatNativeDateModule,
+    
     RouterModule.forRoot([
       {
         path: '',
@@ -64,12 +72,33 @@ import {MatSelectModule, MatFormField, MatButtonModule, MatCheckboxModule,
       component: SampleComponent
     } ,
     {
+      path:'quiz-select',
+      component:QuizSelectComponent
+    },
+    {
+      path: 'login' ,
+      component: LoginComponent
+    },
+    {
       path: '**',
       component: NotFoundComponent
     }
-    ])
+    ]),
+    HttpModule
   ],
-  providers: [],
+  providers: [
+    HttpWrapperService
+  ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+
+export class AppModule {
+constructor(public dailog:MatDialogModule)
+{
+  
+}
+opendialog()
+{
+  this.dailog.open();
+ }
+}

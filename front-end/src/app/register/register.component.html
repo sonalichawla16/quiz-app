@@ -5,7 +5,7 @@
           <mat-card-title>
             Sign up 
           </mat-card-title>
-          <form  [formGroup]="loginForm">
+          <form  [formGroup]="form">
             <mat-card-content>
               <div class="edit-container">
                   <mat-form-field>
@@ -16,18 +16,34 @@
                           class="full-width"
                           placeholder="Enter User Name" 
                       />
+                      <mat-error *ngIf="userName.touched && userName.invalid">
+        <mat-error *ngIf="userName.errors.required">
+          Name is a mandatory field</mat-error>
+        <mat-error *ngIf="userName.errors.pattern">
+          Only alphabets allowed</mat-error>
+        <mat-error *ngIf="userName.errors.minlength && !userName.errors.pattern">
+          Enter a valid name</mat-error>
+      </mat-error>
+
+
                     </mat-form-field>
                 </div>
                 <div class="edit-container">
               <mat-form-field>
                 <input
-                  type="email"
+                  type="text"
                   matInput
                   formControlName="emailAddress"
-                  placeholder="enter email address"
+                  placeholder="Enter Email Address"
                 />
-              </mat-form-field>
+                <mat-error *ngIf="emailAddress.touched && emailAddress.invalid"> 
+       <mat-error *ngIf="emailAddress.errors.required">Email-id is required</mat-error>
+       <mat-error *ngIf="emailAddress.errors.onlycygrpallowed">Invalid email id</mat-error>
+       
+      </mat-error>   
+                       </mat-form-field>
               </div>
+
               <div class="edit-container">
               <mat-form-field>
                 <input  
@@ -36,6 +52,15 @@
                   formControlName="cgiCode"
                   placeholder="Enter CGI code"
                 />
+                <mat-error *ngIf="cgiCode.touched && cgiCode.invalid">
+        <mat-error *ngIf="cgiCode.errors.required">
+          CGI Code is required</mat-error>
+        <mat-error *ngIf="cgiCode.errors.pattern">
+          Only Numbers allowed</mat-error>
+        <mat-error *ngIf="cgiCode.errors.maxlength && !cgiCode.errors.pattern">
+          Enter a valid CGI Code</mat-error>
+      </mat-error>
+      <br>
               </mat-form-field>
               </div>
               <div class="edit-container">
@@ -44,7 +69,14 @@
                   <mat-option *ngFor="let role of roles" [value]="role.value">
                     {{role.value}}
                   </mat-option>
+                  
+
                 </mat-select>
+<!-- <mat-error *ngIf="role.value.invalid">
+ --><!-- </mat-error>
+ <mat-error *ngIf="role.errors.required">
+Specify your role</mat-error>
+ -->
               </mat-form-field>
               </div>
               <div class="edit-container">
@@ -55,6 +87,13 @@
                   formControlName="password"
                   placeholder="Enter Password" 
                 />
+              <mat-error *ngIf="password.touched && password.invalid">
+        <mat-error *ngIf="password.errors.required">
+          Password is required</mat-error>
+        <mat-error *ngIf="password.errors.minlength && !password.errors.pattern">
+          Password should be of minimum 7 characters</mat-error>
+        <mat-error *ngIf="password.errors.pattern">Password must contain uppercase alphabets,lowercase alphabets,digits and special symbols.</mat-error>
+</mat-error>
               </mat-form-field>
               </div>
               <div class="edit-container">
@@ -66,12 +105,18 @@
                     
                     placeholder="Confirm Password" 
                   />
+                <mat-error *ngIf="confirmPassword.touched && confirmPassword.invalid ">
+<mat-error *ngIf="confirmPassword.errors.required ">
+Re-enter your password</mat-error>
+<mat-error *ngIf="confirmPassword.errors.shouldmatchwithpassword">
+Passwords don't match</mat-error>
+</mat-error>
                 </mat-form-field>
               
               </div>
               <div class="button-row">
                 <button mat-raised-button type="submit" (click)="submit(loginForm)" color="primary">Create</button>
-              </div>
+                              </div>
             </mat-card-content>
           
           </form>
