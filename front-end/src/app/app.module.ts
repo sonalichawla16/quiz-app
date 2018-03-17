@@ -13,7 +13,7 @@ import {QuizSelectComponent} from './quiz-select/quiz-select.component';
 // Material Imports
 import {MatButtonModule, MatCheckboxModule, MatCardModule, MatExpansionModule, MatIconModule, MatFormFieldModule, MatInputModule, MatDatepickerModule, MatNativeDateModule} from '@angular/material';
 import { QuizComponent } from './quiz/quiz.component';
-
+import { CategorySelectComponent } from './category-select/category-select.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +24,8 @@ import { QuizComponent } from './quiz/quiz.component';
     QuizSelectComponent,
     NotFoundComponent,
     SampleComponent,
-    QuizComponent
+    QuizComponent,
+    CategorySelectComponent
   ],
   imports: [
     BrowserModule,
@@ -51,6 +52,10 @@ import { QuizComponent } from './quiz/quiz.component';
     {
       path:'quiz-select',
       component:QuizSelectComponent
+    },
+    {
+      path:'category-select',
+      component:CategorySelectComponent
     },
     {
       path:'**',
