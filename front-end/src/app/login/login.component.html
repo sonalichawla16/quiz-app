@@ -1,0 +1,57 @@
+<div class="row Absolute-Center is-Responsive"  >
+  <div class="col-md-3"></div>
+  <div class="col-md-6">
+    <mat-card class="">
+      <mat-card-title>
+        Sign In
+      </mat-card-title>
+      <form  [formGroup]="loginform">
+        <mat-card-content>
+          
+          <div class="edit-container">
+            <mat-form-field>
+              <input
+              type="text"
+              matInput
+              formControlName="emailAddress"
+              placeholder="Enter Email Address"
+              />
+              <mat-error *ngIf="emailAddress.touched && emailAddress.invalid"> 
+               <mat-error *ngIf="emailAddress.errors.required">Email-id is required</mat-error>
+               <mat-error *ngIf="emailAddress.errors.onlycygrpallowed">Invalid email id</mat-error>
+               
+             </mat-error>   
+           </mat-form-field>
+         </div>
+
+         
+         <div class="edit-container">
+          <mat-form-field>
+            <input 
+            type="password"
+            matInput 
+            formControlName="password"
+            placeholder="Enter Password" 
+            />
+            <mat-error *ngIf="password.touched && password.invalid">
+              <mat-error *ngIf="password.errors.required">
+              Password is required</mat-error>
+       <!--  <mat-error *ngIf="password.errors.minlength && !password.errors.pattern">
+          Password should be of minimum 7 characters</mat-error>
+        <mat-error *ngIf="password.errors.pattern">Password must contain uppercase alphabets,lowercase alphabets,digits and special symbols.</mat-error>
+      --></mat-error>
+    </mat-form-field>
+  </div>
+  
+  
+  <div class="button-row">
+    <button mat-raised-button type="submit" (click)="submit(loginForm)" color="primary">Login</button>
+  </div>
+  
+</mat-card-content>
+
+</form>
+</mat-card>
+</div>
+<div class="col-md-3"></div>
+</div>

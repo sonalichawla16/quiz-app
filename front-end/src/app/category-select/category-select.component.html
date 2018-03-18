@@ -1,0 +1,18 @@
+<div>
+<br/>
+<br/>
+ <div class=row>
+  <div class="filter col-sm-4" *ngFor="let category of categorylist">
+    <mat-card class="example-card">
+      
+          <mat-card-title>
+            {{ category.name }}
+          </mat-card-title>       
+
+
+    </mat-card>
+  </div>
+</div>
+
+</div>
+<button mat-fab class="fabbtn" title="Add New Categories"><mat-icon>add</mat-icon></button>
