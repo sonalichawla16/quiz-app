@@ -22,13 +22,7 @@ class ResourceController {
     index(_user) {
         return new Promise((resolve, reject) => {
             var model = this.Model
-            /* model.find({}, (err, response) => {
-                if (err) {
-                    reject(err);
-                }
-                resolve(response);
-            }); */
-            model.findOne({"name": _user.name}, (err, response) => {
+            model.find({}, (err, response) => {
                 if (err) {
                     reject(err);
                 }
