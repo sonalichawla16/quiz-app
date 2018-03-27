@@ -12,21 +12,13 @@ import { QuizComponent } from './quiz/quiz.component';
 import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
 import {NavBarComponent} from './nav-bar/nav-bar.component';
-import {HomeComponent} from './home/home.component';
 import {ManageQuizComponent} from './manage-quiz/manage-quiz.component';
 import {NotFoundComponent} from './not-found/not-found.component';
 import {SampleComponent} from './sample/sample.component';
 import {QuizSelectComponent} from './quiz-select/quiz-select.component';
 // Material Imports
-<<<<<<< HEAD
-import {MatButtonModule, MatCheckboxModule, MatCardModule, MatExpansionModule, MatIconModule, MatFormFieldModule, MatInputModule, MatDatepickerModule, MatNativeDateModule} from '@angular/material';
-import { QuizComponent } from './quiz/quiz.component';
+import {MatButtonModule, MatSelectModule,MatDialogModule,MatCheckboxModule, MatCardModule, MatExpansionModule, MatIconModule, MatFormFieldModule, MatInputModule, MatDatepickerModule, MatNativeDateModule} from '@angular/material';
 import { CategorySelectComponent } from './category-select/category-select.component';
-=======
-import {MatSelectModule , MatButtonModule, MatCheckboxModule, MatCardModule, MatExpansionModule, MatIconModule, MatFormFieldModule, MatInputModule, MatDatepickerModule, MatNativeDateModule} from '@angular/material';
-
-
->>>>>>> upstream/master
 
 @NgModule({
   declarations: [
@@ -38,11 +30,8 @@ import {MatSelectModule , MatButtonModule, MatCheckboxModule, MatCardModule, Mat
     NotFoundComponent,
     SampleComponent,
     QuizComponent,
-<<<<<<< HEAD
-    CategorySelectComponent
-=======
+    CategorySelectComponent,
     LoginComponent
->>>>>>> upstream/master
   ],
   imports: [
     BrowserModule,
@@ -86,21 +75,16 @@ import {MatSelectModule , MatButtonModule, MatCheckboxModule, MatCardModule, Mat
       component:QuizSelectComponent
     },
     {
-<<<<<<< HEAD
       path:'category-select',
       component:CategorySelectComponent
     },
     {
-      path:'**',
-      component:NotFoundComponent
-=======
       path: 'login' ,
       component: LoginComponent
     },
     {
       path: '**',
       component: NotFoundComponent
->>>>>>> upstream/master
     }
     ]),
     HttpModule
@@ -116,8 +100,8 @@ constructor(public dailog:MatDialogModule)
 {
   
 }
-opendialog()
-{
-  this.dailog.open();
- }
+// opendialog()
+// {
+//   this.dailog.open();
+//  }
 }
