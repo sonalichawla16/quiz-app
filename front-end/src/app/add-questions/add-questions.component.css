@@ -1,7 +1,7 @@
 .form-size {
-    min-width: 150px;
+    min-width: 500px;
     max-width: 500px;
-    width: 60%;
+    width: 100%;
   }
   .mat-card{
     width: 100%;
@@ -10,4 +10,3 @@
   .full-width {
     width: 100%;
   }
-  

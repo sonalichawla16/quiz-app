@@ -16,7 +16,9 @@ export class HttpWrapperService {
   /**
    * Headers used in all requests.
    */
-  private headers: any = {};
+  private headers: any = {
+    'Content-Type': 'application/x-www-form-urlencoded'
+  };
 
   /**
    * Base url used in all requests.

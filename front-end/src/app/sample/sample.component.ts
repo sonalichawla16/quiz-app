@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FormControl, Validators} from '@angular/forms';
 import {HttpWrapperService} from '../services/http-wrapper.service';
+import {RegisterComponent} from '../register/register.component';
 
 @Component({
   selector: 'app-sample',
@@ -16,7 +17,7 @@ export class SampleComponent implements OnInit {
     Validators.email
   ]);
 
-  constructor(private http: HttpWrapperService) { }
+  constructor(private http?: HttpWrapperService) { }
 
   ngOnInit() {
   }
@@ -39,5 +40,9 @@ export class SampleComponent implements OnInit {
       this.sampleResponse = request;
     });
   }
-
 }
+  
+
+
+
+
