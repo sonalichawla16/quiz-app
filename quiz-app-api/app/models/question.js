@@ -1,17 +1,6 @@
 var db = require("./db");
 
 var question = db.Schema({
-    "category": String,
-    "desc": {
-        "type": String,
-        "required": true
-    },
-    "options": []
-});
-
-module.exports = db.model("Question", question);
-var db = require("./db")
-var team = db.Schema({
   description: {
     type: String,
     required: true
@@ -49,4 +38,4 @@ var team = db.Schema({
 })
 
 
-module.exports = db.model("Team", team)
+module.exports = db.model("Question", question);
