@@ -1,49 +1,42 @@
-// const ResourceController = require("../ResourceController");
-const ResourceController = require("../ResourceController-Singleton");
+const ResourceController = require("../ResourceController");
 const User = require("../../models/user");
 
 class UserController extends ResourceController {
 
     constructor(...args) {
         super();
-        this.name = args[0];
-        this.email = args[1];
     };
 
 };
 
-const rc = ResourceController.getInstance(User);
-let uc;
+const uc = new UserController(User);
 
 let user = {
     "create": (req, res) => {
-        uc = new UserController(req.query.name, req.query.email);
-        console.log(uc);
-
-        rc
-            .create(uc)
+        uc
+            .create({})
             .then((result) => {
                 res.send(result);
             });
     },
     "list": (req, res) => {
-        rc
-            .index(uc)
+        uc
+            .index()
             .then((result) => {
                 res.send(result);
             });
     },
     "show": (req, res) => {
-        rc
-            .show(uc, req.params._id)
+        uc
+            .show(req.params._id)
             .then((result) => {
                 res.send(result);
             })
-            .catch((e) => {})
+            .catch((e) => { })
     },
     "delete": (req, res) => {
-        rc
-            .delete(uc)
+        uc
+            .delete()
             .then((result) => {
                 res.send(result);
             });
