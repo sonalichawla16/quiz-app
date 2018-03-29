@@ -63,26 +63,34 @@ class ResourceController {
     });
   };
 
-  update(req, res, next) {
-    console.log("this is the value of this: " + this)
-    console.log("update called");
-    res.send("update called from resource controller " + this)
-    next();
-  };
-
-  delete() {
-    console.log("here")
+  update(req) {
     return new Promise((resolve, reject) => {
-      var msg = "In Delete Method!";
-      if (!msg) {
-        reject(err);
-      }
-      resolve(msg);
-    }).catch((e) => {
+      var model = this.model
+      model.update({ _id: req.params.id }, req.body, (err, response) => {
+        if (err) {
+          reject(err)
+        }
 
-    });
+        resolve(response);
+      })
+    })
+    console.log("this is the value of this" + this)
+    console.log('update called');
+    //res.send('update called from resource controller')
+  }
+
+  delete(id) {
+    return new Promise((resolve, reject) => {
+      var model = this.model
+      model.remove({ _id: id }, (err, response) => {
+        if (err) {
+          reject(err)
+        }
+        resolve(response);
+      })
+    })
   };
-
 };
+
 
 module.exports = ResourceController;
