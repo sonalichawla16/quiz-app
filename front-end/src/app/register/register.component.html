@@ -12,16 +12,16 @@
                       <input 
                           type="text" 
                           matInput
-                          formControlName="userName" 
+                          formControlName="name" 
                           class="full-width"
                           placeholder="Enter User Name" 
                       />
-                      <mat-error *ngIf="userName.touched && userName.invalid">
-        <mat-error *ngIf="userName.errors.required">
+                      <mat-error *ngIf="name.touched && name.invalid">
+        <mat-error *ngIf="name.errors.required">
           Name is a mandatory field</mat-error>
-        <mat-error *ngIf="userName.errors.pattern">
+        <mat-error *ngIf="name.errors.pattern">
           Only alphabets allowed</mat-error>
-        <mat-error *ngIf="userName.errors.minlength && !userName.errors.pattern">
+        <mat-error *ngIf="name.errors.minlength && !name.errors.pattern">
           Enter a valid name</mat-error>
       </mat-error>
 
@@ -33,12 +33,12 @@
                 <input
                   type="text"
                   matInput
-                  formControlName="emailAddress"
+                  formControlName="email"
                   placeholder="Enter Email Address"
                 />
-                <mat-error *ngIf="emailAddress.touched && emailAddress.invalid"> 
-       <mat-error *ngIf="emailAddress.errors.required">Email-id is required</mat-error>
-       <mat-error *ngIf="emailAddress.errors.onlycygrpallowed">Invalid email id</mat-error>
+                <mat-error *ngIf="email.touched && email.invalid"> 
+       <mat-error *ngIf="email.errors.required">Email-id is required</mat-error>
+       <mat-error *ngIf="email.errors.onlycygrpallowed">Invalid email id</mat-error>
        
       </mat-error>   
                        </mat-form-field>

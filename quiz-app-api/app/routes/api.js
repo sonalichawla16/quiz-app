@@ -35,6 +35,14 @@ apiRoutes = function (router) {
   router.get("/question/randomQuestion", api.question.randomQuestion);
   router.get("/question/generatedQuestions", api.question.generatedQuestions);
 
+  // Category Controller
+  router.post('/category', api.category.create);
+  router.get('/category/edit/:_id', api.category.show);
+  router.post('/category/update/:_id', api.category.update);
+  router.get('/category', api.category.list);
+  router.put('/category/delete/:_id', api.category.delete)
+
+
   return router;
 };
 

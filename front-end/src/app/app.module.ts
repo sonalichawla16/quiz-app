@@ -4,23 +4,35 @@ import {RouterModule} from '@angular/router';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { HttpModule } from '@angular/http';
-//services 
+
+// services
 import {HttpWrapperService} from './services/http-wrapper.service';
-// Components 
+
+// Components
 import {AppComponent} from './app.component';
 import { QuizComponent } from './quiz/quiz.component';
 import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
 import {NavBarComponent} from './nav-bar/nav-bar.component';
-import {HomeComponent} from './home/home.component';
 import {ManageQuizComponent} from './manage-quiz/manage-quiz.component';
 import {NotFoundComponent} from './not-found/not-found.component';
 import {SampleComponent} from './sample/sample.component';
-import {QuizSelectComponent} from './quiz-select/quiz-select.component';
+
+import { AddQuestionsComponent } from './add-questions/add-questions.component';
+
+import { CategorySelectComponent } from './category-select/category-select.component';
+
+import {AuthService} from './services/authservice.service';
+import { TeamListComponent } from './team-list/team-list.component';
+import { AddNewTeamDialogComponent, DIALOG_DATA } from './add-new-team-dialog/add-new-team-dialog.component';
+
 // Material Imports
-import {MatSelectModule , MatButtonModule, MatCheckboxModule, MatCardModule, MatExpansionModule, MatIconModule, MatFormFieldModule, MatInputModule, MatDatepickerModule, MatNativeDateModule} from '@angular/material';
+import {MatSelectModule, MatFormField, MatButtonModule, MatCheckboxModule, MatRadioModule,
+  MatCardModule, MatExpansionModule, MatIconModule, MatFormFieldModule,
+  MatInputModule, MatDatepickerModule, MatNativeDateModule, MatDialogModule} from '@angular/material';
 
-
+import { PostComponent } from './post/post.component';
+import {QuizSelectComponent} from './quiz-select/quiz-select.component';
 
 @NgModule({
   declarations: [
@@ -31,8 +43,14 @@ import {MatSelectModule , MatButtonModule, MatCheckboxModule, MatCardModule, Mat
     QuizSelectComponent,
     NotFoundComponent,
     SampleComponent,
+    AddQuestionsComponent,
     QuizComponent,
-    LoginComponent
+    LoginComponent,
+    CategorySelectComponent,
+    PostComponent,
+    TeamListComponent,
+    AddNewTeamDialogComponent,
+    PostComponent
   ],
   imports: [
     BrowserModule,
@@ -43,17 +61,20 @@ import {MatSelectModule , MatButtonModule, MatCheckboxModule, MatCardModule, Mat
     MatInputModule,
     MatCardModule,
     MatSelectModule,
+    MatChipsModule,
+    MatDialogModule,
     BrowserAnimationsModule,
     FormsModule,
     ReactiveFormsModule,
     MatButtonModule,
     MatCheckboxModule,
+    MatRadioModule,
     MatExpansionModule,
     MatDialogModule,
     MatIconModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    
+    HttpModule,
     RouterModule.forRoot([
       {
         path: '',
@@ -72,33 +93,48 @@ import {MatSelectModule , MatButtonModule, MatCheckboxModule, MatCardModule, Mat
       component: SampleComponent
     } ,
     {
-      path:'quiz-select',
-      component:QuizSelectComponent
+      path: 'addques' ,
+      component: AddQuestionsComponent
+    } ,
+    {
+      path: 'quiz-select',
+      component: QuizSelectComponent
     },
     {
       path: 'login' ,
       component: LoginComponent
+    }, {
+      path: 'category' ,
+      component : CategorySelectComponent
+    }, {
+      path: 'team',
+      component: TeamListComponent
     },
     {
-      path: '**',
-      component: NotFoundComponent
+      path: 'post',
+      component: PostComponent
+    },
+      {
+        path: '**',
+        component: NotFoundComponent
     }
     ]),
     HttpModule
   ],
   providers: [
-    HttpWrapperService
+    HttpWrapperService,
+    AuthService
   ],
+  entryComponents: [AddNewTeamDialogComponent],
   bootstrap: [AppComponent]
 })
 
 export class AppModule {
-constructor(public dailog:MatDialogModule)
-{
-  
+constructor() {
 }
-opendialog()
-{
-  this.dailog.open();
- }
+
+// opendialog() {
+//   this.dailog.open();
+//  }
+
 }

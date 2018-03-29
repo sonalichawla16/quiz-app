@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import {FormGroup,FormControl,Validators} from '@angular/forms';
+import {FormGroup, FormControl, Validators} from '@angular/forms';
 import {CygrpEmailValidator} from '../customvalidators/cygrpemail.validators';
 import {ConfirmPasswordValidators} from '../customvalidators/confirmpassword.validator';
+import {SampleComponent} from '../sample/sample.component';
+import {Http} from '@angular/http';
+import {AuthService} from '../services/authservice.service';
 
 
 
@@ -11,12 +14,10 @@ import {ConfirmPasswordValidators} from '../customvalidators/confirmpassword.val
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
+  
+  constructor(private auth: AuthService) {
 
-  // form: FormGroup ;
-  // constructor(private _formBuilder: FormBuilder) {
-  //  }
-
-
+  }
   roles = [
   {
     id : 1 ,
@@ -25,39 +26,38 @@ export class RegisterComponent implements OnInit {
       id : 2 ,
       value : 'Participant'}];
 
-    form=new FormGroup({
-      emailAddress:new FormControl('',
+
+    form = new FormGroup({
+      email: new FormControl('',
         [
         Validators.required,
         CygrpEmailValidator.onlycygrpallowed
-
         ]),
 
-      password:new FormControl('',
+      password: new FormControl('',
         [
         Validators.required,
         Validators.minLength(7),
-        Validators.pattern(/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#@$?!_])[a-zA-Z0-9#@$?!_]+$/)
-
+        Validators.pattern(/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#@$?%!_])[a-zA-Z0-9#@$?%!_]+$/)
         ]),
 
-      userName:new FormControl('',
+      name: new FormControl('',
         [
         Validators.required,
         Validators.minLength(3),
         Validators.pattern(/^[a-zA-Z ]+$/)
         ]),
 
-      cgiCode:new FormControl('',
+      cgiCode: new FormControl('',
         [
         Validators.required,
         Validators.maxLength(3),
         Validators.pattern(/^[0-9]+$/)
         ]),
 
-      role : new FormControl('',Validators.required ),
+      role : new FormControl('', Validators.required),
 
-      confirmPassword:new FormControl('',
+      confirmPassword: new FormControl('',
         [
         Validators.required,
         ConfirmPasswordValidators.shouldmatchwithpassword
@@ -66,63 +66,57 @@ export class RegisterComponent implements OnInit {
 
     });
 
-    get password()
-    {
+    get password() {
       return this.form.get('password');
     }
 
-    get userName()
-    {
-      return this.form.get('userName');
+    get name() {
+      return this.form.get('name');
     }
 
-    get emailAddress()
-    {
-      return this.form.get('emailAddress');
+    get email() {
+      return this.form.get('email');
     }
 
-    get cgiCode()
-    {
+    get cgiCode() {
       return this.form.get('cgiCode');
     }
 
-    get confirmPassword()
-    {
+    get confirmPassword() {
       return this.form.get('confirmPassword');
     }
-
     ngOnInit() {
     }
 
-  //}
+  register(userData) {
+          this.auth.registration(userData);
+        }
+
 
   submit(form) {
-    const loginData = {
-      userName : this.form.controls.userName.value as string ,
-      emailAddress : this.form.controls.emailAddress.value as string ,
-      cgiCode : this.form.controls.cgiCode.value as string,
+    const userData = {
+      name : this.name.value as string ,
+      email : this.email.value as string ,
+      cgiCode : this.cgiCode.value as string,
       role : this.form.controls.role.value as string,
-      password : this.form.controls.password.value as string ,
-      confirmPassword : this.form.controls.confirmPassword.value as string
+      password : this.password.value as string
+      // confirmPassword : this.form.controls.confirmPassword.value as string
     };
-    if(this.form.invalid)
-    {
-      console.log("fill all details");
-      
-     }
-        else
-    {
-    console.log('username :' + loginData.userName  +
-      '   emailAddress: ' + loginData.emailAddress +
-      '   cgiCode: '  + loginData.cgiCode +
-      '   role: ' + loginData.role +
-      '   password :' + loginData.password  +
-      '   confirm password :' + loginData.confirmPassword
-      );
-      
+    if (this.form.invalid) {
+      console.log('fill all details properly');
+      alert('REGISTRATION UNSUCEESSFUL');
+           } else {
+        console.log('name :' + userData.name  +
+      '   email ' + userData.email +
+      '   cgiCode: '  + userData.cgiCode +
+      '   role: ' + userData.role +
+      '   password :' + userData.password
+            );
+      this.register(userData);
 
   }
 
 }
 
 }
+
