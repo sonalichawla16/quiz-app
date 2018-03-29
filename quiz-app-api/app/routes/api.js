@@ -34,6 +34,7 @@ apiRoutes = function (router) {
   router.get("/question/index", api.question.index);
   router.get("/question/randomQuestion", api.question.randomQuestion);
   router.get("/question/generatedQuestions", api.question.generatedQuestions);
+  router.get("/question/nextQuestion", api.question.nextQuestion);
 
   // Category Controller
   router.post('/category', api.category.create);
