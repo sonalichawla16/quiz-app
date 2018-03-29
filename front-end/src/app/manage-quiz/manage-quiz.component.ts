@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {AuthService} from '../services/authservice.service';
 
 @Component({
   selector: 'app-manage-quiz',
@@ -7,10 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ManageQuizComponent implements OnInit {
 
-  constructor() { }
-
   ngOnInit() {
   }
+  constructor(private auth: AuthService) {
 
+  }
+
+  logoutmethod() {
+  this.auth.logout();
+  }
 }
 

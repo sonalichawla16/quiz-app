@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import {CategoryComponent} from '../category/category.component';
+import { AddNewTeamDialogComponent } from '../add-new-team-dialog/add-new-team-dialog.component';
 
 @Component({
   selector: 'app-category-select',
@@ -7,15 +7,27 @@ import {CategoryComponent} from '../category/category.component';
   styleUrls: ['./category-select.component.scss']
 })
 export class CategorySelectComponent implements OnInit {
-categorylist=[{id:1,name:"Algorithm"},
-{id:2,name:"Data Structure"},
-{id:3,name:"DBMS"}];
+categorylist = [{
+                id: 1 ,
+                name: 'Algorithm'
+              },  {
+                id: 2,
+                name: 'Data Structure'
+              }, {
+                id: 3,
+                name: 'DBMS'
+              }];
+
 @Input() showMePartially: boolean;
   constructor() {
   }
 
+  // addNewCategory() : void {
+  //   // let dialogBoxRef = this._dialog.open(AddNewTeamDialogComponent ,{
+  //   //   width : 
+  //   // })
+  // }
   ngOnInit() {
-
   }
 
 }
