@@ -42,7 +42,6 @@ export class AuthService {
 
     isLoggedIn() {
         return tokenNotExpired();
-
     }
 
     registration(userData) {
