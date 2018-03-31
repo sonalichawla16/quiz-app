@@ -29,7 +29,7 @@ import { AddNewTeamDialogComponent, DIALOG_DATA } from './add-new-team-dialog/ad
 // Material Imports
 import {MatSelectModule, MatFormField, MatButtonModule, MatCheckboxModule, MatRadioModule,
   MatCardModule, MatExpansionModule, MatIconModule, MatFormFieldModule,
-  MatInputModule, MatDatepickerModule, MatNativeDateModule, MatDialogModule} from '@angular/material';
+  MatInputModule, MatDatepickerModule, MatNativeDateModule, MatChipsModule ,MatDialogModule} from '@angular/material';
 
 import { PostComponent } from './post/post.component';
 import {QuizSelectComponent} from './quiz-select/quiz-select.component';
@@ -132,9 +132,5 @@ import {QuizSelectComponent} from './quiz-select/quiz-select.component';
 export class AppModule {
 constructor() {
 }
-
-// opendialog() {
-//   this.dailog.open();
-//  }
 
 }
