@@ -7,8 +7,7 @@ import {JwtHelper, tokenNotExpired} from 'angular2-jwt';
 export class AuthService {
     constructor(private http: Http, private _router: Router) {
     }
-
-    login(credentials) {
+    login ( credentials ) {
         this.http.post('http://vishalranjan.in:1830/quizapp/api/user/session', credentials).
         subscribe((response) => {
             console.log(response);
@@ -33,19 +32,18 @@ export class AuthService {
             alert('Invalid Credentials');
         });
     }
-    logout() {
+    logout (){
         localStorage.removeItem('tokenfordetails');
         console.log('logged out successfully!');
         this._router.navigate(['/login']);
+
     }
 
-
-    isLoggedIn() {
+    isLoggedIn (){
         return tokenNotExpired();
-
     }
 
-    registration(userData) {
+    registration (userData) {
         this.http.post('http://vishalranjan.in:1830/quizapp/api/user/signup', userData).
         subscribe((request) => {
             console.log(request);
@@ -55,6 +53,6 @@ export class AuthService {
                 email : userData.email ,
                 password : userData.password } ;
                 this.login(credentials);
-        });
+            });
     }
 }

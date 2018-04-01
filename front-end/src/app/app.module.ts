@@ -29,13 +29,12 @@ import { AddNewTeamDialogComponent, DIALOG_DATA } from './add-new-team-dialog/ad
 // Material Imports
 import {MatSelectModule, MatFormField, MatButtonModule, MatCheckboxModule, MatRadioModule,
   MatCardModule, MatExpansionModule, MatIconModule, MatFormFieldModule,
-  MatInputModule, MatDatepickerModule, MatNativeDateModule, MatChipsModule ,MatDialogModule} from '@angular/material';
+  MatInputModule, MatDatepickerModule, MatNativeDateModule, MatChipsModule , MatDialogModule} from '@angular/material';
 
-import { PostComponent } from './post/post.component';
-import {QuizSelectComponent} from './quiz-select/quiz-select.component';
+  import {QuizSelectComponent} from './quiz-select/quiz-select.component';
 
-@NgModule({
-  declarations: [
+  @NgModule({
+    declarations: [
     AppComponent,
     NavBarComponent,
     RegisterComponent,
@@ -47,12 +46,10 @@ import {QuizSelectComponent} from './quiz-select/quiz-select.component';
     QuizComponent,
     LoginComponent,
     CategorySelectComponent,
-    PostComponent,
     TeamListComponent,
-    AddNewTeamDialogComponent,
-    PostComponent
-  ],
-  imports: [
+    AddNewTeamDialogComponent
+    ] ,
+    imports: [
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
@@ -76,10 +73,10 @@ import {QuizSelectComponent} from './quiz-select/quiz-select.component';
     MatNativeDateModule,
     HttpModule,
     RouterModule.forRoot([
-      {
-        path: '',
-        component: RegisterComponent
-      },
+    {
+      path: '',
+      component: RegisterComponent
+    },
     {
       path: 'managequiz',
       component : ManageQuizComponent
@@ -111,26 +108,22 @@ import {QuizSelectComponent} from './quiz-select/quiz-select.component';
       component: TeamListComponent
     },
     {
-      path: 'post',
-      component: PostComponent
-    },
-      {
-        path: '**',
-        component: NotFoundComponent
+      path: '**',
+      component: NotFoundComponent
     }
     ]),
     HttpModule
-  ],
-  providers: [
+    ],
+    providers: [
     HttpWrapperService,
     AuthService
-  ],
-  entryComponents: [AddNewTeamDialogComponent],
-  bootstrap: [AppComponent]
-})
+    ],
+    entryComponents: [AddNewTeamDialogComponent],
+    bootstrap: [AppComponent]
+  })
 
-export class AppModule {
-constructor() {
-}
+  export class AppModule {
+    constructor() {
+    }
 
-}
+  }
