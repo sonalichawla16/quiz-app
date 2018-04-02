@@ -7,6 +7,7 @@ import { HttpModule } from '@angular/http';
 
 // services
 import {HttpWrapperService} from './services/http-wrapper.service';
+import {AuthService} from './services/authservice.service';
 
 // Components
 import {AppComponent} from './app.component';
@@ -17,22 +18,18 @@ import {NavBarComponent} from './nav-bar/nav-bar.component';
 import {ManageQuizComponent} from './manage-quiz/manage-quiz.component';
 import {NotFoundComponent} from './not-found/not-found.component';
 import {SampleComponent} from './sample/sample.component';
+import { AddQuestionsComponent } from './add-questions/add-questions.component';
 import { CategorySelectComponent } from './category-select/category-select.component';
-
-import {FormsModule , ReactiveFormsModule} from '@angular/forms';
-
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
-import {HttpWrapperService} from './services/http-wrapper.service';
-import {AuthService} from './services/authservice.service';
-
-// Material Imports
-import {MatSelectModule, MatFormField, MatButtonModule, MatCheckboxModule,
-  MatCardModule, MatExpansionModule, MatIconModule, MatFormFieldModule,
-  MatInputModule, MatDatepickerModule, MatNativeDateModule, MatDialogModule} from '@angular/material';
-import { LoginComponent } from './login/login.component';
+import { TeamListComponent } from './team-list/team-list.component';
 import { PostComponent } from './post/post.component';
 import {QuizSelectComponent} from './quiz-select/quiz-select.component';
+import { AddNewCategoryDialogComponent } from './add-new-category-dialog/add-new-category-dialog.component';
+import { AddNewTeamDialogComponent, DIALOG_DATA } from './add-new-team-dialog/add-new-team-dialog.component';
+
+// Material Imports
+import {MatSelectModule, MatFormField, MatButtonModule, MatCheckboxModule, MatRadioModule,
+  MatCardModule, MatExpansionModule, MatIconModule, MatFormFieldModule,
+  MatInputModule, MatDatepickerModule, MatNativeDateModule, MatChipsModule , MatDialogModule} from '@angular/material';
 
 
 @NgModule({
@@ -42,12 +39,17 @@ import {QuizSelectComponent} from './quiz-select/quiz-select.component';
     RegisterComponent,
     ManageQuizComponent,
     QuizSelectComponent,
+    QuizComponent,
     NotFoundComponent,
     SampleComponent,
+    AddQuestionsComponent,
     QuizComponent,
     LoginComponent,
-    CategorySelectComponent
-    PostComponent
+    CategorySelectComponent,
+    PostComponent,
+    TeamListComponent,
+    AddNewTeamDialogComponent,
+    AddNewCategoryDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -58,11 +60,14 @@ import {QuizSelectComponent} from './quiz-select/quiz-select.component';
     MatInputModule,
     MatCardModule,
     MatSelectModule,
+    MatChipsModule,
+    MatDialogModule,
     BrowserAnimationsModule,
     FormsModule,
     ReactiveFormsModule,
     MatButtonModule,
     MatCheckboxModule,
+    MatRadioModule,
     MatExpansionModule,
     MatDialogModule,
     MatIconModule,
@@ -73,18 +78,18 @@ import {QuizSelectComponent} from './quiz-select/quiz-select.component';
       {
         path: '',
         component: RegisterComponent
-      },
-    {
+      }, {
       path: 'managequiz',
       component : ManageQuizComponent
-    },
-    {
+    }, {
       path: 'home' ,
       component: RegisterComponent
-    } ,
-    {
+    }, {
       path: 'sample' ,
       component: SampleComponent
+    }, {
+      path: 'addques' ,
+      component: AddQuestionsComponent
     } ,
     {
       path: 'quiz-select',
@@ -93,33 +98,33 @@ import {QuizSelectComponent} from './quiz-select/quiz-select.component';
     {
       path: 'login' ,
       component: LoginComponent
-    }, {
+    },
+    {
       path: 'category' ,
       component : CategorySelectComponent
     },
     {
-      path:'post',
+      path: 'team',
+      component: TeamListComponent
+    },
+    {
+      path: 'post',
       component: PostComponent
     },
-      {
-      path: '**',
-      component: NotFoundComponent
-    }
-    ]),
-    HttpModule
+    {
+        path: '**',
+        component: NotFoundComponent
+    }])
   ],
-  providers: [
+providers: [
     HttpWrapperService,
     AuthService
   ],
-
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [ AddNewTeamDialogComponent, AddNewCategoryDialogComponent ],
 })
 
 export class AppModule {
-constructor(public dailog: MatDialogModule) {
+constructor() {
 }
-// opendialog() {
-//   this.dailog.open();
-//  }
 }

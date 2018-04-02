@@ -2,15 +2,16 @@ const ResourceController = require("../ResourceController");
 const Quiz = require('../../models/quiz')
 
 class QuizController extends ResourceController {
-    constructor(...args) {
-        super(...args);
-    }
-    // update(req, res) {
-    //     res.send('update called from class')
-    // }        
+  constructor(...args) {
+    super(...args);
+  }
+  // update(req, res) {
+  //     res.send('update called from class')
+  // }        
 }
 var qc = new QuizController(Quiz);
 qc.list();
+<<<<<<< HEAD
  quiz = {
      create: (req, res) => {
      	var quizObj = {
@@ -46,4 +47,6 @@ qc.list();
 
  }
 
-module.exports = qc
+
+// module.exports = qc
+module.exports = quiz
