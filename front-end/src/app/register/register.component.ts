@@ -14,12 +14,7 @@ import {AuthService} from '../services/authservice.service';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
-
-
-  // form: FormGroup ;
-  // constructor(private _formBuilder: FormBuilder) {
-  //  }
-
+  
   constructor(private auth: AuthService) {
 
   }
@@ -31,20 +26,19 @@ export class RegisterComponent implements OnInit {
       id : 2 ,
       value : 'Participant'}];
 
+
     form = new FormGroup({
       email: new FormControl('',
         [
         Validators.required,
         CygrpEmailValidator.onlycygrpallowed
-
         ]),
 
       password: new FormControl('',
         [
         Validators.required,
         Validators.minLength(7),
-        Validators.pattern(/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#@$?%!_])[a-zA-Z0-9#@$?%!_]+$/)
-
+        Validators.pattern(/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#@$^?%!_])[a-zA-Z0-9#@^$?%!_]+$/)
         ]),
 
       name: new FormControl('',

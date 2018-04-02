@@ -1,4 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { MatDialog, MatDialogRef } from '@angular/material';
+import { AddNewCategoryDialogComponent } from '../add-new-category-dialog/add-new-category-dialog.component';
 
 @Component({
   selector: 'app-category-select',
@@ -6,11 +8,7 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./category-select.component.scss']
 })
 export class CategorySelectComponent implements OnInit {
-<<<<<<< HEAD
-categorylist = [{id: 1 , name: 'Algorithm'},
-{id: 2 , name: 'Data Structure'},
-{id: 3 , name: 'DBMS'}];
-=======
+
 categorylist = [{
                 id: 1 ,
                 name: 'Algorithm'
@@ -22,11 +20,19 @@ categorylist = [{
                 name: 'DBMS'
               }];
 
+dialogRef: MatDialogRef<AddNewCategoryDialogComponent>;
+
 @Input() showMePartially: boolean;
->>>>>>> 99d80ec88fe3f12cf39804256868ba47e3fcabe2
-  constructor() {
+  constructor(private _dialog: MatDialog) {
+
   }
 
+  addNewCategory(): void {
+    this.dialogRef = this._dialog.open(AddNewCategoryDialogComponent, {
+      width : '500px' ,
+      hasBackdrop : false
+    });
+  }
   ngOnInit() {
   }
 
