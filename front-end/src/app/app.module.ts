@@ -123,4 +123,5 @@ providers: [
 export class AppModule {
 constructor() {
 }
+ base = 'http://vishalranjan.in:1830/';
 }
