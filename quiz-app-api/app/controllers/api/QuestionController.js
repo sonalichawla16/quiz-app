@@ -170,9 +170,7 @@ let question = {
                   "perPage": o.perPage,
                   "limit": o.limit,
                   "questions": (function () {
-                    let questionsCollection = [];
                     let x = ((o.perPage * o.page) - o.limit);
-                    console.log(x);
                     return this.listAllQuestions.slice(x, (o.limit + x));
                   })()
                 })
