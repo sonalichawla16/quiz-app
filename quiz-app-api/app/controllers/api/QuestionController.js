@@ -142,7 +142,7 @@ let question = {
   "questionsPagination": (req, res, next) => {
     var queryString = {
       "page": (req.query.page || 1),
-      "limit": (req.query.limit || 10),
+      "limit": (Number.parseInt(req.query.limit) || 10),
       "perPage": (req.query.perPage || 10)
     };
 
@@ -153,22 +153,18 @@ let question = {
         .find({})
         .skip((param.perPage * param.page) - param.limit)
         .limit(param.limit)
-        .exec(function(err, questions) {
-          Question
-            .count()
-            .exec(function(err, count) {
-              if (err) {
-                return next(err);
-              }
-              res
-                .status(200)
-                .json({
-                  "status": "SUCCESS",
-                  "page": param.page,
-                  "perPage": param.perPage,
-                  "limit": param.limit,
-                  "questions": questions
-                });
+        .exec(function (err, questions) {
+          if (err) {
+            return next(err);
+          }
+          res
+            .status(200)
+            .json({
+              "status": "SUCCESS",
+              "page": param.page,
+              "perPage": param.perPage,
+              "limit": param.limit,
+              "questions": questions
             });
         });
     };
