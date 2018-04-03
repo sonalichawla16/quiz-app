@@ -46,7 +46,6 @@ import {MatSelectModule, MatFormField, MatButtonModule, MatCheckboxModule, MatRa
     NotFoundComponent,
     SampleComponent,
     AddQuestionsComponent,
-
     QuizComponent,
     LoginComponent,
     CategorySelectComponent,
@@ -102,23 +101,25 @@ import {MatSelectModule, MatFormField, MatButtonModule, MatCheckboxModule, MatRa
     {
       path: 'quiz-select',
       component: QuizSelectComponent
-    }, {
+    },
+    {
       path: 'login' ,
       component: LoginComponent
-    }, {
+    },
+    {
       path: 'category' ,
       component : CategorySelectComponent
-    }, {
+    },
+    {
       path: 'team',
       component: TeamListComponent
-
     },
     {
       path: '**',
       component: NotFoundComponent
     }
     ]),
-    HttpModule
+    
     ],
     providers: [
     HttpWrapperService,
@@ -131,6 +132,6 @@ import {MatSelectModule, MatFormField, MatButtonModule, MatCheckboxModule, MatRa
   export class AppModule {
     constructor() {
     }
-
   }
+
 
