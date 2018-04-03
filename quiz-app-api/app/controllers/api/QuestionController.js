@@ -13,7 +13,7 @@ class QuestionController extends ResoureController {
 let ques = new QuestionController(Question);
 
 let question = {
-  "create": (req, res, next) => { // USE DUMMY_QUESTIONS.JS INSTEAD
+  "create": (req, res, next) => {
     ques
       .create((function (req, res) {
         return req.body;
