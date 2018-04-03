@@ -29,9 +29,6 @@ import { AddNewTeamDialogComponent, DIALOG_DATA } from './add-new-team-dialog/ad
 import {MatSelectModule, MatFormField, MatButtonModule, MatCheckboxModule, MatRadioModule,
   MatCardModule, MatExpansionModule, MatIconModule, MatFormFieldModule,
   MatInputModule, MatDatepickerModule, MatNativeDateModule, MatChipsModule , MatDialogModule} from '@angular/material';
-
-
-
   @NgModule({
     declarations: [
     AppComponent,
@@ -74,11 +71,11 @@ import {MatSelectModule, MatFormField, MatButtonModule, MatCheckboxModule, MatRa
     MatNativeDateModule,
     HttpModule,
     RouterModule.forRoot([
-      {
-        path: '',
-        component: RegisterComponent
-      }, {
-
+    {
+      path: '',
+      component: RegisterComponent
+    },
+    {
       path: 'managequiz',
       component : ManageQuizComponent
     }, {
@@ -108,20 +105,20 @@ import {MatSelectModule, MatFormField, MatButtonModule, MatCheckboxModule, MatRa
       component: TeamListComponent
     },
     {
-        path: '**',
-        component: NotFoundComponent
-    }])
-  ],
-providers: [
+     path: '**',
+      component: NotFoundComponent
+    }
+    ]),
+       ],
+    providers: [
     HttpWrapperService,
     AuthService
-  ],
-  bootstrap: [AppComponent],
-  entryComponents: [ AddNewTeamDialogComponent, AddNewCategoryDialogComponent ],
-})
+    ],
+    entryComponents: [AddNewTeamDialogComponent,AddNewCategoryDialogComponent],
+    bootstrap: [AppComponent]
+  })
 
-export class AppModule {
-constructor() {
-}
- base = 'http://vishalranjan.in:1830/';
-}
+  export class AppModule {
+    constructor() {
+    }
+  }
