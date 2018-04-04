@@ -30,6 +30,19 @@ quiz = {
     },
     list: (req, res) => {
         qc.index().then((result) => {
+        	   result.sort(function(a, b) {
+  var quizNameA = a.quizName.toUpperCase(); // ignore upper and lowercase
+  var quizNameB = b.quizName.toUpperCase(); // ignore upper and lowercase
+  if (quizNameA < quizNameB) {
+    return -1;
+  }
+  if (quizNameA > quizNameB) {
+    return 1;
+  }
+
+  // names must be equal
+  return 0;
+});
             res.status(200).json(result.sort());
         });
     },

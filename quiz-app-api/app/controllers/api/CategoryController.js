@@ -32,7 +32,20 @@ category = {
     },
     list: (req, res) => {
         cc.index().then((result) => {
-            res.status(200).json(result.sort());
+            result.sort(function(a, b) {
+       var categoryNameA = a.categoryName.toUpperCase(); // ignore upper and lowercase
+       var categoryNameB = b.categoryName.toUpperCase(); // ignore upper and lowercase
+       if (categoryNameA < categoryNameB) {
+           return -1;
+       }
+       if (categoryNameA > categoryNameB) {
+           return 1;
+       }
+
+       // names must be equal
+       return 0;
+   });
+            res.status(200).json(result);
             
         });
     },
@@ -54,7 +67,7 @@ category = {
     },
 
     update: (req, res) => {
-       
+
     var categoryObj = {
             categoryName: req.body.categoryName,
             isTechnology: req.body.isTechnology
