@@ -32,19 +32,10 @@ category = {
     },
     list: (req, res) => {
         cc.index().then((result) => {
-            result.sort(function(a, b) {
-       var categoryNameA = a.categoryName.toUpperCase(); // ignore upper and lowercase
-       var categoryNameB = b.categoryName.toUpperCase(); // ignore upper and lowercase
-       if (categoryNameA < categoryNameB) {
-           return -1;
-       }
-       if (categoryNameA > categoryNameB) {
-           return 1;
-       }
 
-       // names must be equal
-       return 0;
-   });
+            result.sort(function(a,b){return a.categoryName.localeCompare(b.categoryName); });
+          
+      
             res.status(200).json(result);
             
         });
