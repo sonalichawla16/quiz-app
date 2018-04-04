@@ -4,7 +4,7 @@ import {Router} from '@angular/router';
 
 @Injectable()
 export class AuthService {
-    constructor(?private http: Http, private _router: Router) {
+    constructor(private http: Http, private _router: Router) {
     }
 
     login(credentials) {
@@ -38,10 +38,10 @@ export class AuthService {
     }
 
 
-    isLoggedIn() {
-        return tokenNotExpired();
+    //isLoggedIn() {
+    //    return tokenNotExpired();
 
-    }
+    //}
 
     registration(userData) {
         this.http.post('http://188.166.214.9:1830/quizapp/api/user/signup', userData).
@@ -49,7 +49,7 @@ export class AuthService {
             console.log(request);
             console.log(userData);
             alert('REGISTRATION SUCCESSFUL');
-            this.sampleResponse = request;
+            //this.sampleResponse = request;
             this._router.navigate(['/sample']);
         });
     }
