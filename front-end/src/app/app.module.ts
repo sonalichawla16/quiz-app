@@ -1,8 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {RouterModule} from '@angular/router';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 // services
@@ -20,10 +18,13 @@ import {NotFoundComponent} from './not-found/not-found.component';
 import {SampleComponent} from './sample/sample.component';
 import { AddQuestionsComponent } from './add-questions/add-questions.component';
 import { CategorySelectComponent } from './category-select/category-select.component';
+import {FormsModule , ReactiveFormsModule} from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TeamListComponent } from './team-list/team-list.component';
 import {QuizSelectComponent} from './quiz-select/quiz-select.component';
 import { AddNewCategoryDialogComponent } from './add-new-category-dialog/add-new-category-dialog.component';
 import { AddNewTeamDialogComponent, DIALOG_DATA } from './add-new-team-dialog/add-new-team-dialog.component';
+
 
 // Material Imports
 import {MatSelectModule, MatFormField, MatButtonModule, MatCheckboxModule, MatRadioModule,
@@ -114,7 +115,7 @@ import {MatSelectModule, MatFormField, MatButtonModule, MatCheckboxModule, MatRa
     HttpWrapperService,
     AuthService
     ],
-    entryComponents: [AddNewTeamDialogComponent,AddNewCategoryDialogComponent],
+    entryComponents: [AddNewTeamDialogComponent, AddNewCategoryDialogComponent],
     bootstrap: [AppComponent]
   })
 
