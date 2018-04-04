@@ -1,0 +1,22 @@
+@import "../../_variable.scss";
+.filter {
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+  .example-card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+.fabbtn{
+    position: fixed;
+    bottom: 30px;
+    right: 30px; 
+}
+
+mat-chip {
+    max-width: 200px;
+    
+  }
+.chipbg{
+    background-color: $accent-color;
+}
