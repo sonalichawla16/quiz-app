@@ -54,8 +54,12 @@ category = {
     },
 
     update: (req, res) => {
-
-        cc.update(req).then((result) => {
+       
+    var categoryObj = {
+            categoryName: req.body.categoryName,
+            isTechnology: req.body.isTechnology
+        }
+        cc.update(categoryObj,req.params._id).then((result) => {
             res.status(200).json(result);
         });
     },
