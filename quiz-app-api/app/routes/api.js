@@ -27,16 +27,16 @@ apiRoutes = function (router) {
     //Quiz controller
     router.post('/quiz', api.quiz.create);
     router.get('/quiz', api.quiz.list);
-    router.get('/quiz/getQuizById/:_id', api.quiz.show);
-    router.post('/quiz/update/:_id', api.quiz.update);
-    router.put('/quiz/delete/:_id',api.quiz.delete);
+    router.get('/quiz/:_id', api.quiz.show);
+    router.put('/quiz/:_id', api.quiz.update);
+    router.delete('/quiz/:_id',api.quiz.delete);
 
     //Category controller
     router.post('/category', api.category.create);
-    router.get('/category/getCategoryById/:_id', api.category.show);
-    router.post('/category/update/:_id', api.category.update);
+    router.get('/category/:_id', api.category.show);
+    router.put('/category/:_id', api.category.update);
     router.get('/category', api.category.list);
-    router.put('/category/delete/:_id',api.category.delete)
+    router.delete('/category/:_id',api.category.delete)
 
     // Questions Controller
     router.get("/question/create", api.question.create);
