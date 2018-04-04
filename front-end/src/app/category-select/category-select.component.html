@@ -2,9 +2,9 @@
 <br/>
 <br/>
  <div class=row>
-  <div class=" filter col-sm-4" *ngFor="let category of categorylist">
+  <div class=" filter col-sm-4" *ngFor="let category of categorylist; let i=index">
     <mat-card class="example-card">
-      <div class="grad1" [ngStyle]="bgChange()"><span class="text">{{category.categoryName[0]}}</span></div>
+      <div class="grad1" [ngStyle]="bgChange(i)"><span class="text">{{category.categoryName[0]}}</span></div>
       <div>
           <mat-card-title>&nbsp;          
             {{ category.categoryName }}           
