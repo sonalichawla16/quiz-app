@@ -44,20 +44,17 @@ export class AuthService  {
         console.log('logged out successfully!');
         this._router.navigate(['/login']);
     }
-    
-
     isLoggedIn() {
         return tokenNotExpired();
     }
-
-    registration(userData) { 
+    registration(userData) {
         // this.http.post('http://vishalranjan.in:1830/quizapp/api/user/signup', userData).
         this.http.post(this.httpWrapper.baseUrl + '/user/signup', userData).
         subscribe((request) => {
             console.log(request);
             console.log(userData);
             alert('REGISTRATION SUCCESSFUL');
-            var credentials = {
+            let credentials = {
                 email : userData.email ,
                 password : userData.password } ;
                 this.login(credentials);
