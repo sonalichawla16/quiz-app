@@ -7,7 +7,7 @@ import {HttpWrapperService} from '../services/http-wrapper.service';
 
 @Injectable()
 export class AuthService  {
-    constructor(private http: Http, private _router: Router, private httpWrapper: HttpWrapperService) {
+    constructor(private http: Http, private _router: Router,private httpWrapper:HttpWrapperService) {
     }
 
     login(credentials) {

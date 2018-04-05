@@ -115,7 +115,7 @@ import {MatSelectModule, MatFormField, MatButtonModule, MatCheckboxModule, MatRa
     HttpWrapperService,
     AuthService
     ],
-    entryComponents: [AddNewTeamDialogComponent, AddNewCategoryDialogComponent],
+    entryComponents: [AddNewTeamDialogComponent,AddNewCategoryDialogComponent],
     bootstrap: [AppComponent]
   })
 
