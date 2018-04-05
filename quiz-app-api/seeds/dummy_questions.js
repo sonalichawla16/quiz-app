@@ -56,7 +56,7 @@ for (let i = 0; i < 15; i++) {
           console.log(err);
           return;
         }
-        console.log("Bulk Updated for Quizes");
+        console.log("Bulk Updated for Questions");
         console.log(doc)
       });
   });
