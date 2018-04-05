@@ -136,38 +136,6 @@ let question = {
     };
 
     foo(req, res, next);
-  },
-
-  // Pagination  ex: ?page=2&limit=10&perPage=10
-  "questionsPagination": (req, res, next) => {
-    var queryString = {
-      "page": (req.query.page || 1),
-      "limit": (Number.parseInt(req.query.limit) || 10),
-      "perPage": (req.query.perPage || 10)
-    };
-
-    doPagination(queryString);
-
-    function doPagination(param) {
-      Question
-        .find({})
-        .skip((param.perPage * param.page) - param.limit)
-        .limit(param.limit)
-        .exec(function (err, questions) {
-          if (err) {
-            return next(err);
-          }
-          res
-            .status(200)
-            .json({
-              "status": "SUCCESS",
-              "page": param.page,
-              "perPage": param.perPage,
-              "limit": param.limit,
-              "questions": questions
-            });
-        });
-    };
   }
 };
 
