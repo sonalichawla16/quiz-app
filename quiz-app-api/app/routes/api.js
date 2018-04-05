@@ -43,7 +43,6 @@ apiRoutes = function (router) {
     router.get("/question/randomQuestion", api.question.randomQuestion);
     router.get("/question/generatedQuestions", api.question.generatedQuestions);
     router.get("/question/nextQuestion", api.question.nextQuestion);
-    router.get("/question/questionsPagination", api.question.questionsPagination);
     
     return router;
 };
