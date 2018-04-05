@@ -44,7 +44,8 @@ export class AddNewCategoryDialogComponent implements OnInit {
   submit() {
     let header = new Headers();
     //    header.append('x-auth', localStorage.getItem('tokenfordetails'));
-    header.append('Content-Type': 'application/json; charset=utf-8');
+    // header.append('Content-Type':'application/json; charset=utf-8');
+    header.append('Content-Type','application/json; charset=utf-8');
     const options = new RequestOptions({ headers: header });
     let data = {
       'categoryName': this.categoryName,
