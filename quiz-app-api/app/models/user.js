@@ -39,4 +39,4 @@ var user = db.Schema({
 })
 
 
-module.exports = db.model('User', user)
+module.exports = db.model("User", user)

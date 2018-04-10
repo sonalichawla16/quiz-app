@@ -53,7 +53,7 @@ export class AddNewCategoryDialogComponent implements OnInit {
     };
 
     this._http.post(this.adminUrl, data, options).subscribe((response) =>
-      console.log(response));    
-    
+      console.log(response));
+
   }
 }

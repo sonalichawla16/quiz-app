@@ -1,16 +1,16 @@
 <form [formGroup]="categoryFormGroup">
     <h1 mat-dialog-title style="text-align:center">Add Category</h1>
      <mat-dialog-content>
-      <div class="edit-container">   
+      <div class="edit-container">
       <mat-form-field>
         <input matInput formControlName="categoryName" placeholder="Enter Category Name">
       </mat-form-field>
-      <mat-checkbox formControlName="isTechnology" 
+      <mat-checkbox formControlName="isTechnology"
         [checked]= "isChecked"
         (change)="onChange($event)" >Is Technology</mat-checkbox>
       <!-- <mat-form-field *ngIf = "isChecked" >
-        <input 
-          matInput 
+        <input
+          matInput
           formControlName="technologyName"
           placeholder="Enter Technology Name">
       </mat-form-field> -->

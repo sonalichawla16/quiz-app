@@ -1,5 +1,5 @@
 const ResourceController = require("../ResourceController");
-const Category = require('../../models/category')
+const { Category } = require('../../models')
 
 class CategoryController extends ResourceController {
     constructor(...args) {
@@ -25,19 +25,19 @@ category = {
             cc.create(categoryObj).then((result) => {
                 res.status(200).json(result);
             //res.send(result);
-        }); 
-        
-      
-       
+        });
+
+
+
     },
     list: (req, res) => {
         cc.index().then((result) => {
 
             result.sort(function(a,b){return a.categoryName.localeCompare(b.categoryName); });
-          
-      
+
+
             res.status(200).json(result);
-            
+
         });
     },
     show: (req, res) => {
@@ -53,7 +53,7 @@ category = {
         cc.show(req.params._id).then((result) => {
             res.status(200).json(result);
         });
-       
+
 
     },
 
@@ -71,7 +71,7 @@ category = {
         try{
            if(req.params._id == ""){
                  throw "Category Id is blank"
-            }  
+            }
         }
           catch(ex){
          res.status(400).json(ex);
