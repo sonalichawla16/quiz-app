@@ -39,7 +39,7 @@ apiRoutes = function (router) {
     router.delete('/category/:_id',api.category.delete)
 
     // Questions Controller
-    router.get("/question/create", api.question.create);
+    router.post("/question/create", api.question.create);
     router.get("/question/index", api.question.index);
     router.get("/question/randomQuestion", api.question.randomQuestion);
     router.get("/question/generatedQuestions", api.question.generatedQuestions);
