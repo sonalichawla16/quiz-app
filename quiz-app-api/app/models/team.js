@@ -6,12 +6,14 @@ var team = db.Schema({
         type: String,
         required: true
     },
-    members:[
-        {
-            type: mongoose.Schema.Types.ObjectId,
-            ref: 'User'
-        }
-        ],
+
+    members:
+        [{
+            type: db.Schema.Types.ObjectId,
+            ref: "User"
+        }]
+    ,
+
     createdAt: {
         type: Date,
         default: new Date(),
