@@ -24,9 +24,9 @@ var user = db.Schema({
     },   
     userRole: {
         type: String
-        //required: true,
-        //enum: ['USER', 'ADMIN', 'PRESENTER'],
-        //default: 'USER'
+        required: true,
+        // enum: ['USER', 'ADMIN', 'PRESENTER'],
+        // default: 'USER'
     },
     createdAt: {
         type: Date,
