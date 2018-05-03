@@ -5,18 +5,16 @@ var round = db.Schema({
         type: String,
         required: true,
     },
-    questions:
-        [{
-        	type: db.Schema.Types.ObjectId,
-            ref: 'Category',
-            count: Number
-        }],
+    category: [{
+        type: db.Schema.Types.ObjectId,
+        ref: 'Category',
+        count: Number
+    }],
 
     weightage: {
-        type: Number,
-        default: new Date(),
+        type: Number
     },
-     type: {
+    type: {
         type: String,
         required: true,
         enum: ['BUZZER', 'PASS', 'TIMER'],
